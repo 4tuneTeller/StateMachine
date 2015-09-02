@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StatePattern\InitialState.cs" />
+    <Compile Include="StatePattern\SecondButtonActiveState.cs" />
+    <Compile Include="StatePattern\State.cs" />
+    <Compile Include="StatePattern\StateMachine.cs" />
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
