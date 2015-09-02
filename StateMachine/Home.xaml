@@ -1,0 +1,34 @@
+﻿<Page x:Class="StateMachine.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StateMachine"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Home">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>           
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Button Name="leftButton" Grid.Row="0" Grid.Column="0" Margin="10,60">Кнопка №1</Button>
+            <Button Name="rightButton" Grid.Row="0" Grid.Column="1" Margin="10,60">Кнопка №2</Button>
+        </Grid>       
+       
+    </Grid>
+</Page>
