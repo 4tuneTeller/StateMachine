@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateMachine.StatePattern
 {
+    // аткивируется вторая кнопка, по нажатию на которой произойдет переход в следующее состояние - на следующий экран
     class SecondButtonActiveState : State
     {
         System.Windows.RoutedEventHandler stateChangeEventHandler;
@@ -25,12 +26,6 @@ namespace StateMachine.StatePattern
             homePage.rightButton.IsEnabled = true;
             homePage.rightButton.Click += stateChangeEventHandler;
         }
-
-        //protected override void GoToNextState()
-        //{
-        //    OnExit();
-        //    sm.CurrentState = new SecondScreenInitState();
-        //}
 
         protected override void OnExit()
         {

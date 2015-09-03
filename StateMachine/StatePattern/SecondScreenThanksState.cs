@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateMachine.StatePattern
 {
+    // состояние второго экрана, после ввода текста "hello" в текстовое поле
     class SecondScreenThanksState : State
     {
         System.Windows.RoutedEventHandler stateChangeEventHandler;

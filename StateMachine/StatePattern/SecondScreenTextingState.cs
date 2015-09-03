@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateMachine.StatePattern
 {
+    // состояение второго экрана, при вводе в поле любого текста
     class SecondScreenTextingState : State
     {
         public SecondScreenTextingState(State state) :this(state.SM)

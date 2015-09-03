@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateMachine.StatePattern
 {
+    // начальное состояние второго экрана: текст Hi, поле ввода и активная кнопка
     class SecondScreenInitState : State
     {
         System.Windows.Controls.TextChangedEventHandler stateChangeEventHandler;
