@@ -16,7 +16,7 @@ namespace StateMachine.StatePattern
 
         public SecondButtonActiveState (WindowStateMachine stateMachine)
         {
-            stateChangeEventHandler = (a, b) => GoToNextState(new SecondScreenInitState(this));
+            stateChangeEventHandler = (a, b) => GoToState(new SecondScreenInitState(this));
             OnInit(stateMachine);
         }
 

@@ -34,7 +34,7 @@ namespace StateMachine.StatePattern
         protected abstract void OnExit();
 
         // метод перехода в следующее состояние
-        protected void GoToNextState(State newState)
+        protected void GoToState(State newState)
         {
             OnExit();
             sm.CurrentState = newState;

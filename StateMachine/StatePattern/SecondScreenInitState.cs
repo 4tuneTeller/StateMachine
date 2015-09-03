@@ -16,7 +16,7 @@ namespace StateMachine.StatePattern
 
         public SecondScreenInitState(WindowStateMachine stateMachine)
         {
-            stateChangeEventHandler = (a, b) => GoToNextState(new SecondScreenTextingState(this));
+            stateChangeEventHandler = (a, b) => GoToState(new SecondScreenTextingState(this));
             OnInit(stateMachine);
         }
 

@@ -27,7 +27,7 @@ namespace StateMachine.StatePattern
         private void TextboxOne_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             var textBox = sender as System.Windows.Controls.TextBox;
-            if (textBox.Text == "hello") GoToNextState(new SecondScreenThanksState(this));
+            if (textBox.Text == "hello") GoToState(new SecondScreenThanksState(this));
         }
 
         protected override void OnExit()

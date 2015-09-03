@@ -17,7 +17,7 @@ namespace StateMachine.StatePattern
 
         public InitialState (WindowStateMachine stateMachine)
         {
-            stateChangeEventHandler = (a, b) => GoToNextState(new SecondButtonActiveState(this));
+            stateChangeEventHandler = (a, b) => GoToState(new SecondButtonActiveState(this));
             OnInit(stateMachine);
         }
 
