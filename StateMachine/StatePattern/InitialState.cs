@@ -9,6 +9,7 @@ namespace StateMachine.StatePattern
     // начальное состояние: первый экран, кнопка №1 активна, кнопка №2 - нет
     class InitialState : State
     {
+        System.Windows.RoutedEventHandler stateChangeEventHandler;
         // Этот конструкто получает состояние, из которого осуществляется переход и вызывает второй конструктор, в который передает данные этого состояния. 
         // В данном случае это только машина состояний, которая использует эти состояния, но в дальнейшем таким образом состояния смогут обмениваться данными
         public InitialState (State state) :this(state.SM)
@@ -16,6 +17,7 @@ namespace StateMachine.StatePattern
 
         public InitialState (WindowStateMachine stateMachine)
         {
+            stateChangeEventHandler = (a, b) => GoToNextState(new SecondButtonActiveState(this));
             OnInit(stateMachine);
         }
 
@@ -27,14 +29,15 @@ namespace StateMachine.StatePattern
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
+            window.ContentRendered -= Window_ContentRendered;
             Home homePage = (Home)window.Content;
             homePage.rightButton.IsEnabled = false;
-            homePage.leftButton.Click += (a, b) => GoToNextState();
+            homePage.leftButton.Click += stateChangeEventHandler;
         }
 
-        protected override void GoToNextState()
+        protected override void OnExit()
         {
-            sm.CurrentState = new SecondButtonActiveState(this);
+            ((Home)window.Content).leftButton.Click -= stateChangeEventHandler;
         }
     }
 }

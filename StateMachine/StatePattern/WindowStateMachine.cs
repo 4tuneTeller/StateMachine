@@ -11,7 +11,6 @@ namespace StateMachine.StatePattern
     {
         State currentState = null;
         MainWindow window = null;
-        
 
         public State CurrentState
         {

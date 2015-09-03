@@ -13,21 +13,30 @@ namespace StateMachine.StatePattern
         protected WindowStateMachine sm;
         protected MainWindow window;
 
+        //protected System.Windows.RoutedEventHandler stateChangeEventHandler;
+        //protected Eve stateChangeEventHandler;
+
         public WindowStateMachine SM
         {
             get { return sm; }
             set { sm = value; }
         }
 
-        protected virtual void OnInit(WindowStateMachine stateMachine)
+        protected void OnInit(WindowStateMachine stateMachine)
         {
             sm = stateMachine;
             window = stateMachine.Window;
+            //stateChangeEventHandler = (a, b) => GoToNextState();
             OnEnter();
         }
 
         protected abstract void OnEnter();
+        protected abstract void OnExit();
         // метод перехода в следующее состояние, который мы будем определять в наших конкретных состояниях
-        protected abstract void GoToNextState();
+        protected void GoToNextState(dynamic newState)
+        {
+            OnExit();
+            sm.CurrentState = newState;
+        }
     }
 }

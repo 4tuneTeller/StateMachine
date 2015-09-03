@@ -8,11 +8,14 @@ namespace StateMachine.StatePattern
 {
     class SecondButtonActiveState : State
     {
+        System.Windows.RoutedEventHandler stateChangeEventHandler;
+
         public SecondButtonActiveState (State state) :this(state.SM)
         { }
 
         public SecondButtonActiveState (WindowStateMachine stateMachine)
         {
+            stateChangeEventHandler = (a, b) => GoToNextState(new SecondScreenInitState(this));
             OnInit(stateMachine);
         }
 
@@ -20,11 +23,20 @@ namespace StateMachine.StatePattern
         {
             Home homePage = (Home)window.Content;
             homePage.rightButton.IsEnabled = true;
+            homePage.rightButton.Click += stateChangeEventHandler;
         }
 
-        protected override void GoToNextState()
+        //protected override void GoToNextState()
+        //{
+        //    OnExit();
+        //    sm.CurrentState = new SecondScreenInitState();
+        //}
+
+        protected override void OnExit()
         {
-            throw new NotImplementedException();
+            Home homePage = (Home)window.Content;
+            homePage.rightButton.Click -= stateChangeEventHandler;
+            homePage.rightButton.IsEnabled = false;
         }
     }
 }
