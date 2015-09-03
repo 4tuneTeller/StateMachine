@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace StateMachine.StatePattern
 {
     // наша машина состояний
-    public class StateMachine
+    public class WindowStateMachine
     {
         State currentState = null;
+        MainWindow window = null;
+        
 
         public State CurrentState
         {
@@ -17,8 +19,14 @@ namespace StateMachine.StatePattern
             set { currentState = value; }
         }
 
-        public StateMachine()
+        public MainWindow Window
         {
+            get { return window; }
+        }
+
+        public WindowStateMachine(MainWindow Window)
+        {
+            window = Window;
             currentState = new InitialState(this);
         }
     }

@@ -9,15 +9,25 @@ namespace StateMachine.StatePattern
     // абстрактный класс состояний, от которого будем наследовать остальные состояния
     public abstract class State
     {
-        // машина состояний, которая будет использовать наши состояния. В данном примере не используется, но если бы нам нужны были какие-то данные, общие для всех состояний, эти данные мы бы передовали через эту МС
-        protected StateMachine sm; 
+        // машина состояний, которая будет использовать наши состояния
+        protected WindowStateMachine sm;
+        protected MainWindow window;
 
-        public StateMachine SM
+        public WindowStateMachine SM
         {
             get { return sm; }
             set { sm = value; }
         }
 
-        public abstract void GoToNextState();
+        protected virtual void OnInit(WindowStateMachine stateMachine)
+        {
+            sm = stateMachine;
+            window = stateMachine.Window;
+            OnEnter();
+        }
+
+        protected abstract void OnEnter();
+        // метод перехода в следующее состояние, который мы будем определять в наших конкретных состояниях
+        protected abstract void GoToNextState();
     }
 }

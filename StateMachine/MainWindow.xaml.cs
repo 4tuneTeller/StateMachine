@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using StateMachine.StatePattern;
 
 namespace StateMachine
 {
@@ -23,6 +24,7 @@ namespace StateMachine
         public MainWindow()
         {
             InitializeComponent();
+            WindowStateMachine stateMachine = new WindowStateMachine(this);   
         }
     }
 }

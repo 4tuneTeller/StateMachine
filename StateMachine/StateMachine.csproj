@@ -58,7 +58,7 @@
     <Compile Include="StatePattern\InitialState.cs" />
     <Compile Include="StatePattern\SecondButtonActiveState.cs" />
     <Compile Include="StatePattern\State.cs" />
-    <Compile Include="StatePattern\StateMachine.cs" />
+    <Compile Include="StatePattern\WindowStateMachine.cs" />
     <Page Include="Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

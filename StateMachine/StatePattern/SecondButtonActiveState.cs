@@ -8,12 +8,21 @@ namespace StateMachine.StatePattern
 {
     class SecondButtonActiveState : State
     {
-        public SecondButtonActiveState (StateMachine stateMachine)
+        public SecondButtonActiveState (State state) :this(state.SM)
+        { }
+
+        public SecondButtonActiveState (WindowStateMachine stateMachine)
         {
-            sm = stateMachine;
+            OnInit(stateMachine);
         }
 
-        public override void GoToNextState()
+        protected override void OnEnter()
+        {
+            Home homePage = (Home)window.Content;
+            homePage.rightButton.IsEnabled = true;
+        }
+
+        protected override void GoToNextState()
         {
             throw new NotImplementedException();
         }
