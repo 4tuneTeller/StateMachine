@@ -10,7 +10,6 @@ namespace StateMachine.StatePattern
     class SecondScreenThanksState : State
     {
         System.Windows.RoutedEventHandler stateChangeNextEventHandler;
-        //System.Windows.Controls.TextChangedEventHandler stateChangePrevEventHandler;
 
         public SecondScreenThanksState(State state) :this(state.SM)
         { }
@@ -18,7 +17,6 @@ namespace StateMachine.StatePattern
         public SecondScreenThanksState(WindowStateMachine stateMachine)
         {
             stateChangeNextEventHandler = (a, b) => GoToState(new InitialState(this));
-            //stateChangePrevEventHandler = (a, b) => GoToState(new SecondScreenTextingState(this));
             OnInit(stateMachine);
         }
 
